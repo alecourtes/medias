@@ -1,0 +1,23 @@
+db:
+    image: mysql
+    volumes:
+        - /var/lib/boot2docker/mysql:/var/lib/mysql
+        - /var/www/labs/symfony/docker:/etc/mysql/conf.d
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+    ports:
+        - "3306:3306"
+
+apache:
+    image: env-dev-php5 
+    ports:
+        - "80:80"
+    volumes:
+        - /var/www/infodev:/var/www/infodev
+        - /var/www/labs/symfony:/var/www/symfony
+        - /var/www/labs/symfony/docker/php.ini:/usr/local/etc/php/conf.d/php.ini
+        - /var/www/labs/symfony/docker/sites:/etc/apache2/sites-enabled
+    environment:
+        - ALLOW_OVERRIDE=true
+    links:
+        - db:db
