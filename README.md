@@ -1,2 +1,2 @@
 # medias
-Personnal project
+Personnal project of team
