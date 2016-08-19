@@ -21,12 +21,6 @@ class Users
      */
     private $id;
 
-    /**
-     * @var medias
-     *
-     * @ORM\ManyToMany(targetEntity="Media")
-     */
-    private $medias;
 
     
     /**
@@ -77,6 +71,21 @@ class Users
      * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Media", inversedBy="users")
+     */
+    private $medias;
+
+     /**
+     * @var role
+     *
+     * @ORM\ManyToOne(targetEntity="Role", inversedBy="users")
+     * @ORM\JoinColumn(name="role_id", referencedColumnName="id")
+     */
+    private $role;
 
     /**
      * Get id

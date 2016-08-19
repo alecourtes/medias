@@ -5,12 +5,12 @@ namespace MediasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Media
+ * Theme
  *
- * @ORM\Table(name="media")
- * @ORM\Entity(repositoryClass="MediasBundle\Repository\MediaRepository")
+ * @ORM\Table(name="theme")
+ * @ORM\Entity(repositoryClass="MediasBundle\Repository\ThemeRepository")
  */
-class Media
+class Theme
 {
     /**
      * @var int
@@ -21,21 +21,10 @@ class Media
      */
     private $id;
 
-     /**
-     * @var media_type
-     *
-     * @ORM\ManyToOne(targetEntity="MediaType", inversedBy="medias")
-     * @ORM\JoinColumn(name="media_type_id", referencedColumnName="id")
-     */
-    private $media_type;
-    
-    
-    
-    
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=100)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
@@ -46,32 +35,12 @@ class Media
      */
     private $description;
 
-     /**
-     * @var ArrayCollection
-     * 
-     * @ORM\OneToMany(targetEntity="Comments", mappedBy="media")
-     */
-    private $comments;
-     /**
-     * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Users", mappedBy="medias")
-     */
-    private $users;
-
-     /**
-     * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Platform", inversedBy="medias")
-     */
-    private $platforms;
-
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Theme", inversedBy="medias")
+     * @ORM\ManyToMany(targetEntity="Media", mappedBy="themes")
      */
-    private $themes;
+    private $medias;
 
 
     /**
@@ -89,7 +58,7 @@ class Media
      *
      * @param string $name
      *
-     * @return Media
+     * @return Theme
      */
     public function setName($name)
     {
@@ -113,7 +82,7 @@ class Media
      *
      * @param string $description
      *
-     * @return Media
+     * @return Theme
      */
     public function setDescription($description)
     {
@@ -131,6 +100,5 @@ class Media
     {
         return $this->description;
     }
-
 }
 
