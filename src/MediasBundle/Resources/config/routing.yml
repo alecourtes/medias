@@ -1,0 +1,3 @@
+medias_homepage:
+    path:     /
+    defaults: { _controller: MediasBundle:Default:index }
