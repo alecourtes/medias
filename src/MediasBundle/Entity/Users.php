@@ -22,6 +22,14 @@ class Users
     private $id;
 
     /**
+     * @var medias
+     *
+     * @ORM\ManyToMany(targetEntity="Media")
+     */
+    private $medias;
+
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)

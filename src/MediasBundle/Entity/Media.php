@@ -30,6 +30,14 @@ class Media
     private $media_type;
     
     
+     /**
+     * @var ArrayCollection
+     * 
+     * @ORM\OneToMany(targetEntity="Comments", mappedBy="media")
+     */
+    private $comments;
+    
+    
     /**
      * @var string
      *

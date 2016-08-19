@@ -31,11 +31,11 @@ class Comments {
     /**
      * @var media
      *
-     * @ORM\ManyToOne(targetEntity="Media", inversedBy="Media")
-     * @ORM\JoinColumn(name="media_type_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Media", inversedBy="comments")
+     * @ORM\JoinColumn(name="media_id", referencedColumnName="id")
      */
-    private $media_type;
-
+    private $media;
+    
     /**
      * Get id
      *
