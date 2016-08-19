@@ -22,27 +22,27 @@ class Media
     private $id;
 
      /**
-     * @var type_media
+     * @var media_type
      *
-     * @ORM\ManyToOne(targetEntity="Type_media", inversedBy="medias")
-     * @ORM\JoinColumn(name="type_media_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="MediaType", inversedBy="medias")
+     * @ORM\JoinColumn(name="media_type_id", referencedColumnName="id")
      */
-    private $type_media;
+    private $media_type;
     
     
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_media", type="string", length=100)
+     * @ORM\Column(name="name", type="string", length=100)
      */
-    private $nomMedia;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descriptif", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255)
      */
-    private $descriptif;
+    private $description;
 
 
     /**
@@ -56,51 +56,51 @@ class Media
     }
 
     /**
-     * Set nomMedia
+     * Set name
      *
-     * @param string $nomMedia
+     * @param string $name
      *
      * @return Media
      */
-    public function setNomMedia($nomMedia)
+    public function setName($name)
     {
-        $this->nomMedia = $nomMedia;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get nomMedia
+     * Get name
      *
      * @return string
      */
-    public function getNomMedia()
+    public function getName()
     {
-        return $this->nomMedia;
+        return $this->name;
     }
 
     /**
-     * Set descriptif
+     * Set description
      *
-     * @param string $descriptif
+     * @param string $description
      *
      * @return Media
      */
-    public function setDescriptif($descriptif)
+    public function setDescription($description)
     {
-        $this->descriptif = $descriptif;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get descriptif
+     * Get description
      *
      * @return string
      */
-    public function getDescriptif()
+    public function getDescription()
     {
-        return $this->descriptif;
+        return $this->description;
     }
 
 }

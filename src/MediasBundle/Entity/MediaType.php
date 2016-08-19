@@ -5,12 +5,12 @@ namespace MediasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Type_media
+ * MediaType
  *
- * @ORM\Table(name="type_media")
- * @ORM\Entity(repositoryClass="MediasBundle\Repository\Type_mediaRepository")
+ * @ORM\Table(name="media_type")
+ * @ORM\Entity(repositoryClass="MediasBundle\Repository\MediaTypeRepository")
  */
-class Type_media
+class MediaType
 {
     /**
      * @var int
@@ -24,15 +24,15 @@ class Type_media
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=45)
+     * @ORM\Column(name="name", type="string", length=45)
      */
-    private $nom;
+    private $name;
 
     
     /**
      * @var ArrayCollection
      * 
-     * @ORM\OneToMany(targetEntity="Media", mappedBy="type_media")
+     * @ORM\OneToMany(targetEntity="Media", mappedBy="media_type")
      */
     private $medias;
 
@@ -47,27 +47,27 @@ class Type_media
     }
 
     /**
-     * Set nom
+     * Set name
      *
-     * @param string $nom
+     * @param string $name
      *
-     * @return type_media
+     * @return media_type
      */
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get name
      *
      * @return string
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 }
 
