@@ -69,5 +69,45 @@ class MediaType
     {
         return $this->name;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add media
+     *
+     * @param \MediasBundle\Entity\Media $media
+     *
+     * @return MediaType
+     */
+    public function addMedia(\MediasBundle\Entity\Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param \MediasBundle\Entity\Media $media
+     */
+    public function removeMedia(\MediasBundle\Entity\Media $media)
+    {
+        $this->medias->removeElement($media);
+    }
+
+    /**
+     * Get medias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedias()
+    {
+        return $this->medias;
+    }
+}

@@ -67,4 +67,28 @@ class Comments {
         return $this->title;
     }
 
+
+    /**
+     * Set media
+     *
+     * @param \MediasBundle\Entity\Media $media
+     *
+     * @return Comments
+     */
+    public function setMedia(\MediasBundle\Entity\Media $media = null)
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+
+    /**
+     * Get media
+     *
+     * @return \MediasBundle\Entity\Media
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
 }
